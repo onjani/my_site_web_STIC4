@@ -12,33 +12,42 @@ function check_input() {
     var check3 = document.getElementById("validCheck3").checked;
     var check4 = document.getElementById("validCheck4").checked;
     var submitButton = document.getElementById("submitButton");
-    
 
     if (check1 || check2 || check3 || check4) {
         submitButton.style.display = "block";
-    
+            
     }
     else {
         submitButton.style.display = "none";
+        
         
     }
         
 }
 
 function openModal() {
-    var modal = document.getElementById("modal");
-    modal.style.display = "block";
-    
     var dark_layer = document.getElementById("couche_sombre");
     if (dark_layer) {
         dark_layer.style.display = "block";
     }
 
+    var modal = document.getElementById("modal");
+    modal.style.display = "block";
+    var opacity = 0;
+    var timer = setInterval(function() {
+        if (opacity >= 1) {
+            clearInterval(timer);
+        }
+        modal.style.opacity = opacity;
+        opacity += 0.2;
+    }, 50);
+       
 }
 
 function closeModal() {
     var modal = document.getElementById("modal");
     modal.style.display = "none";
+    modal.style.opacity = 0;
 
     var dark_layer = document.getElementById("couche_sombre");
     if (dark_layer) {
