@@ -56,3 +56,31 @@ function closeModal() {
      
     
 }
+
+function afficher_reservation_reussie() {
+    var fenetre = document.getElementById("fenetre-success");
+    var modal = document.getElementById("modal");
+    modal.style.display = "none";
+    modal.style.opacity = 0;
+    fenetre.style.display = "block";
+    var opacity = 0;
+    var timer = setInterval(function() {
+        if (opacity >= 1) {
+            clearInterval(timer);
+        }
+        fenetre.style.opacity = opacity;
+        opacity += 0.2;
+    }, 50);
+       
+}
+
+function fermer_fenetre() {
+    var fen = document.getElementById("fenetre-success");
+    var dark_layer = document.getElementById("couche_sombre");
+    fen.style.display = "none";
+    fen.style.opacity = 0;
+
+    if (dark_layer) {
+        dark_layer.style.display = "none";
+    }
+}
